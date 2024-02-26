@@ -38,11 +38,25 @@ export default function RootLayout({ children }) {
         break;
     }
   }
+  function loginMenuClickHandler({ item, key, keyPath, domEvent }) {
+    console.log(key);
+    switch (key) {
+      case "1":
+        router.push("/login");
+        break;
+      case "2":
+        router.push("/register");
+        break;
+
+      default:
+        break;
+    }
+  }
 
   return (
     <html lang="en">
       <body style={{ margin: 0 }} className={inter.className}>
-        <Layout >
+        <Layout>
           <Header
             style={{
               display: "flex",
@@ -78,6 +92,9 @@ export default function RootLayout({ children }) {
               style={{
                 flex: 1,
                 minWidth: 0,
+              }}
+              onClick={({ item, key, keyPath, domEvent }) => {
+                loginMenuClickHandler({ item, key, keyPath, domEvent });
               }}
             />
           </Header>
