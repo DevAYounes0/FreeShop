@@ -3,8 +3,8 @@ import React from 'react';
 
 const OrderCard = ({details}) => {
   return (
-    <Card>
-      
+    <Card title={details.title} >
+      {details.description}
     </Card>
   );
 }
