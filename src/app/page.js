@@ -4,11 +4,14 @@ import AuthGuard from "./Components/AuthGuard";
 import { Flex } from "antd/lib";
 import OrderCard from "./Components/OrderCard";
 
+
 export default function Shopping() {
-  const [details, setDetails] = useState({ title: "Carrots" });
+  const aat= [{ title:"Carrots"},{title:"Car"}]
   return (
     <Flex>
-      <OrderCard details={details} />
+    {aat.map((item,index)=>{
+      return <OrderCard key={index+1} details={item} />
+    })}
     </Flex>
   );
 }
