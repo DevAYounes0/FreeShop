@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body style={{ margin: 0 }} className={inter.className}>
+      <body style={{ margin: 0,backgroundColor:'lightpink'}} className={inter.className}>
         <Layout>
           <Header
             style={{
@@ -102,6 +102,7 @@ export default function RootLayout({ children }) {
             style={{
               padding: "0 48px",
               height: "550px",
+              backgroundColor:'green'
             }}
           >
             <div
