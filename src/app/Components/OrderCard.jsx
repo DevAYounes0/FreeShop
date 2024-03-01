@@ -1,12 +1,12 @@
-import { Badge, Card, Image } from "antd/lib";
+import { Badge, Button, Card, Image, Space } from "antd/lib";
 import React from "react";
 
-const OrderCard = ({ details }) => {
+const OrderCard = ({ details,showCart }) => {
   return (
     <Badge count={details.quantity}>
       <Card
         hoverable
-        style={{ height: "300px", width: "300px" }}
+        style={{ height: "320px", width: "300px" }}
         title={details.title}
       >
         <Image
@@ -26,7 +26,11 @@ const OrderCard = ({ details }) => {
         <small style={{ color: "red" }}>
           Only {details.quantity} left in stock - order soon.
         </small>
-      </Card>{" "}
+        <div style={{display:'flex',justifyContent:'center',alignItems:"center" ,marginTop:10 }}>
+          <Button onClick={()=>{showCart(true)}} type="primary">+</Button>
+          <Button type="primary" style={{marginLeft:5}}>-</Button>
+        </div>
+      </Card>
     </Badge>
   );
 };

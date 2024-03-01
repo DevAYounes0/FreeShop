@@ -1,22 +1,38 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthGuard from "./Components/AuthGuard";
 import { Flex } from "antd/lib";
 import OrderCard from "./Components/OrderCard";
-import { Col, Row } from "antd";
-import ShoppingData from "../../src/app/DummyData/ShoppingData";
+import { Button, Col, Row } from "antd";
+import axios from "axios";
+import CartComponent from "./Components/CartComponent";
+//import ShoppingData from "../../src/app/DummyData/ShoppingData";
 export default function Shopping() {
+  const [f, setF] = useState([]);
+  let shoppingData = [];
+  const [cart, showCart] = useState(false);
+  useEffect(() => {
+    getShop();
+  }, []);
+  async function getShop() {
+    shoppingData = await axios.get("api/shop").then((data) => {
+      return data;
+    });
+    setF(shoppingData.data.cards);
+  }
+
   return (
     <>
       <Row gutter={24}>
-        {ShoppingData.map((item, index) => {
+        {f.map((item, index) => {
           return (
             <Col style={{ marginTop: 20 }} key={index}>
-              <OrderCard key={index + 1} details={item} />
+              <OrderCard showCart={showCart} details={item} />
             </Col>
           );
         })}
       </Row>
+      {cart && <CartComponent />}
     </>
   );
 }

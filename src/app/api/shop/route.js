@@ -4,7 +4,8 @@ import shoppingList from "../../../app/DummyData/ShoppingData";
 import connect from "../../../../utils/mongoConfig";
 export async function GET() {
   try {
-    return NextResponse.json({ shoppingList }, { status: 200 });
+    const cards = await shopModel.find({});
+    return NextResponse.json({ cards }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }
