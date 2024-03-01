@@ -4,8 +4,9 @@ import "./globals.css";
 import { Layout, Menu, theme } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-const { Header, Content, Footer } = Layout;
+import background from "../../public/background.jpg";
 
+const { Header, Content, Footer } = Layout;
 const menuItems = ["Home", "My Cart", "Profile"];
 const mainItems = menuItems.map((item, index) => ({
   key: index + 1,
@@ -55,7 +56,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body style={{ margin: 0,backgroundColor:'lightpink'}} className={inter.className}>
+      <body
+        style={{ margin: 0, backgroundColor: "lightpink" }}
+        className={inter.className}
+      >
         <Layout>
           <Header
             style={{
@@ -101,8 +105,7 @@ export default function RootLayout({ children }) {
           <Content
             style={{
               padding: "0 48px",
-              height: "550px",
-              backgroundColor:'green'
+              backgroundImage: `url(${background})`,
             }}
           >
             <div
