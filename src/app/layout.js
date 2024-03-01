@@ -106,16 +106,12 @@ export default function RootLayout({ children }) {
             style={{
               padding: "0 48px",
               backgroundImage: `url(${background})`,
+              minHeight: "90vh",
             }}
           >
-            <div
-              style={{
-                minHeight: 280,
-                padding: 24,
-              }}
-            >
+          
               {children}
-            </div>
+          
           </Content>
           <Footer
             style={{
